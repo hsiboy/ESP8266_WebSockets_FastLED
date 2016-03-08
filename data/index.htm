@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta content="width=device-width, initial-scale=0.9, maximum-scale=0.9" name="viewport">
-<script language="javascript" type="text/javascript" src=jquery-2.1.4.min.js></script>
+<script language="javascript" type="text/javascript" src="jquery-2.1.4.min.js"></script>
 <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
 <script>
     $(document).bind('mobileinit',function(){
@@ -13,7 +14,6 @@
 <meta charset="UTF-8">
 <script>
 	var connection = new WebSocket('ws://'+location.hostname+':81/', ['arduino']);
-	//var connection = new WebSocket('ws://websocketstest.local:81/', ['arduino']);
 	connection.onopen = function () {  connection.send('Connect ' + new Date()); }; 
 	connection.onerror = function (error) {    console.log('WebSocket Error ', error);};
 	connection.onmessage = function (e) {  
@@ -27,7 +27,7 @@
 		IssueSystemMessage( "WebSocket Disconnected!" );
 	 };
 	function sendRGB(){
-	  	var r = parseInt(document.getElementById('r').value).toString(16);  
+	  var r = parseInt(document.getElementById('r').value).toString(16);  
 		var g = parseInt(document.getElementById('g').value).toString(16);  
 		var b = parseInt(document.getElementById('b').value).toString(16);  
 		if(r.length < 2) { r = '0' + r; }   
@@ -51,15 +51,15 @@
     function PixelsToggle(){
         var OnOff = document.getElementById('flipper').value;  
         console.log('OnOff: ' + OnOff); 
-        if(r.length < 2) { r = '0' + r; }   
+    /*  if(r.length < 2) { r = '0' + r; }   
         if(g.length < 2) { g = '0' + g; }   
         if(b.length < 2) { b = '0' + b; }   
 
         if(OnOff == 'off') {r = '00'; g = '00'; b = '00'; }
         if(OnOff == 'on') {r = 'ff'; g = 'ff'; b = 'ff'; }
         var rgb = '#'+r+g+b;    
-        console.log('RGB: ' + rgb); 
-        connection.send(rgb);
+        console.log('RGB: ' + rgb);  */ 
+        connection.send(OnOff);
     }
 </script>
 
