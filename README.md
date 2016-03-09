@@ -1,4 +1,5 @@
-# ESP8266 Websockets demo using NeoPixels
+# ESP8266 - control of FastLED using websockets
 
-More info here: http://adityatannu.com/blog/post/2016/01/24/ESP8266-Websockets-demo-using-NeoPixels.html
-# ESP8266_WebSockets_FastLED
+html, JS and CSS stored on ESP8266 within SPIFFS.
+
+
