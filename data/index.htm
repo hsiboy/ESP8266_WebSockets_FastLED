@@ -32,6 +32,14 @@
 		$('#SystemStatusClicker').css("color", "red" );
 		IssueSystemMessage( "WebSocket Disconnected!" );
 	 };
+	 $(document).ready(function() {      
+
+    // Display Alert on Radio Change    
+    $('body').on('change', 'input[name="radio1"]:radio', function() {
+    alert('Radio Button clicked');
+}); 
+});
+
 	function sendRGB(){
 	  var r = parseInt(document.getElementById('r').value).toString(16);  
 		var g = parseInt(document.getElementById('g').value).toString(16);  
