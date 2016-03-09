@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta content="width=device-width, initial-scale=0.9, maximum-scale=0.9" name="viewport">
-<script language="javascript" type="text/javascript" src="jquery-2.1.4.min.js"></script>
-<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <title>title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="jquery.mobile-1.4.5.min.js"></script>
+        <link href="jquery.mobile-1.4.5.min.css" rel="stylesheet"  />
+    </head>
+
+
 <script>
     $(document).bind('mobileinit',function(){
         $.mobile.pushStateEnabled = false;
     });
 </script>
-<script language="javascript" type="text/javascript" src="jquery.mobile-1.4.5.min.js"></script>
 <script language="javascript" type="text/javascript" src=ady.js></script>
 <meta charset="UTF-8">
+
 <script>
 	var connection = new WebSocket('ws://'+location.hostname+':81/', ['arduino']);
 	connection.onopen = function () {  connection.send('Connect ' + new Date()); }; 
@@ -92,16 +98,45 @@ padding: 10px;
 </head>
 <body>
 <h1 align="center">WebSockets Slider</h1>
-<h2>R</h2> <input id="r" type="range" min="0" max="255" step="1" onchange="sendRGB();" />
-<h2>G</h2> <input id="g" type="range" min="0" max="255" step="1" onchange="sendRGB();" />
-<h2>B</h2> <input id="b" type="range" min="0" max="255" step="1" onchange="sendRGB();" />
-<h2>Pixel</h2> <input id="pixel" type="range" min="1" max="16" step="1" onchange="OnePixel();" />
 
-<label for="flipper"><h2>Switch</h2></label>
-<select name="slider" id="flipper" data-role="slider" onchange="PixelsToggle();" align="center">
-    <option value="off">Off</option>
-    <option value="on">On</option>
-</select> 
+<label for="r">R</label>
+<input type="range" id="r" value="128" min="0" max="254" step="1" data-highlight="true" data-theme="b" />
+<label for="g">G</label>
+<input type="range" id="g" value="128" min="0" max="254" step="1" data-highlight="true" data-theme="b" />
+<label for="b">B</label>
+<input type="range" id="b" value="128" min="0" max="254" step="1" data-highlight="true" data-theme="b" />
+
+<label for="pixel">Pixel</label>
+<input type="range" id="pixel" value="60" min="1" max="60" step="1" data-highlight="true" data-theme="b" onchange="OnePixel();/>
+
+
+
+                <fieldset data-role="controlgroup" data-iconpos="right">
+                    <legend></legend>
+                    <input type="radio" id="radio1" name="radio1" value="F_0" data-theme="b" />
+                    <label for="radio1">All Off</label>
+                    <input type="radio" id="radio2" name="radio1" value="F_1" data-theme="b" />
+                    <label for="radio2">2 Random Colors</label>
+                    <input type="radio" id="radio3" name="radio1" value="F_2" data-theme="b" />
+                    <label for="radio3">3 Random Colors</label>
+                    <input type="radio" id="radio4" name="radio1" value="F_3" data-theme="b" />
+                    <label for="radio4">Purple &amp; Green</label>
+                    <input type="radio" id="radio5" name="radio1" value="F_4" data-theme="b" />
+                    <label for="radio5">Black &amp; White</label>
+                    <input type="radio" id="radio6" name="radio1" value="F_5" data-theme="b" />
+                    <label for="radio6">Forest Colors</label>
+                    <input type="radio" id="radio7" name="radio1" value="F_6" data-theme="b" />
+                    <label for="radio7">Cloud Colors</label>
+                    <input type="radio" id="radio8" name="radio1" value="F_7" data-theme="b" />
+                    <label for="radio8">Lava Colors</label>
+                    <input type="radio" id="radio9" name="radio1" value="F_8" data-theme="b" />
+                    <label for="radio9">Ocean Colors</label>
+                    <input type="radio" id="radio10" name="radio1" value="F_9" checked="checked" data-theme="b" />
+                    <label for="radio10">Party Colors</label>
+                </fieldset>
+
+<label for="flipper">Switch</label>
+<input type="checkbox" data-role="flipswitch" name="flip-checkbox" id="flipper" onchange="PixelsToggle();" data-theme="b" checked="">
 
 <div id=SystemMessage>...</div>
 </body>
